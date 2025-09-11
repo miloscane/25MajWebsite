@@ -20,6 +20,8 @@ const client 	= 	new MongoClient(uri,{
 	useUnifiedTopology: true
 });
 
+var mapKey = process.env.googlemaps;
+
 
 server.set('view engine','ejs');
 var viewArray	=	[__dirname+'/views'];
@@ -68,7 +70,8 @@ server.get('/',async (req,res)=>{
 					description: "Pored tri otvorena bazena i jednog zatvorenog, olimpijskog, u čijem sklopu se nalazi i saunski blok - welness, centar sadrži i salu za dvoranske sportove. U sklopu SRPC funkcionišu razni ugostiteljski objekti - restorani I kafići, dečije igraonice, teretane i drugi razni poslovni objekti.",
 					image: "https://25maj.rs/images/ogImage.jpg",
 					url: "https://25maj.rs",
-					obavestenja: JSON.stringify(obavestenja) 
+					obavestenja: JSON.stringify(obavestenja),
+					mapKey: mapKey
 				});	
     	})
     	.catch(error => {
